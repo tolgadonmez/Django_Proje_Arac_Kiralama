@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50364f8e-bc8d-4bb4-9572-46836977a811" name="Default Changelist" comment="">
+    <list default="true" id="50364f8e-bc8d-4bb4-9572-46836977a811" name="Default Changelist" comment="6.video son hali">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +85,7 @@
       <workItem from="1587475894203" duration="66000" />
       <workItem from="1589407292887" duration="4000" />
       <workItem from="1589407320065" duration="28000" />
-      <workItem from="1589407349777" duration="5133000" />
+      <workItem from="1589407349777" duration="5392000" />
     </task>
     <task id="LOCAL-00001" summary="6.video son hali">
       <created>1589412321161</created>
@@ -94,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589412321161</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="6.video son hali">
+      <created>1589412512909</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589412512909</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,17 +112,17 @@
     <option name="LAST_COMMIT_MESSAGE" value="6.video son hali" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1589412319994">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1589412711407">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589412319994" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1589407346336">
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589412711407" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1589412681124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589407346336" />
-    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589412497965">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589412681124" />
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589412714276">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1589412497965" />
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1589412714276" />
   </component>
 </project>
