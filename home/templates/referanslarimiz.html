@@ -1,0 +1,61 @@
+{% extends "homebase.html" %}
+
+{% block title %} Referanslarımız --- {{ setting.company }}  {% endblock %}
+{% block keyword %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+    <section id="inner-headline">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="inner-heading">
+              <ul class="breadcrumb">
+                <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
+                <li><a href="#">Pages</a> <i class="icon-angle-right"></i></li>
+                <li class="active">Referanslarımız</li>
+              </ul>
+              <h2>Referanslarımız</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="content">
+      <div class="container">
+        <div class="row">
+
+          <div class="span12">
+
+                {{ setting.references|safe }}
+
+          </div>
+
+        </div>
+
+        <!-- divider -->
+        <div class="row">
+          <div class="span12">
+            <div class="solidline"></div>
+          </div>
+        </div>
+        <!-- end divider -->
+
+
+        <div class="blankline30"></div>
+
+      </div>
+    </section>
+
+
+
+
+{% endblock %}

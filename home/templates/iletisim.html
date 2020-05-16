@@ -1,0 +1,92 @@
+{% extends "homebase.html" %}
+
+{% block title %} İletişim --- {{ setting.company }}  {% endblock %}
+{% block keyword %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="inner-heading">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
+                            <li><a href="#">Pages</a> <i class="icon-angle-right"></i></li>
+                            <li class="active">İletişim</li>
+                        </ul>
+                        <h2>İletişim</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="span6">
+
+                    <h4> <b>İletişim Formu</b> </h4>
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                {{ message }}
+                            </div>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="SEND FORM">
+                    </form>
+
+
+
+
+                </div>
+
+                <div class="span6">
+
+                    <h4> <b> İletişim Bilgilerimiz</b></h4>
+
+                    {{ setting.contact|safe }}
+
+
+
+
+                </div>
+
+            </div>
+
+            <!-- divider -->
+            <div class="row">
+                <div class="span12">
+                    <div class="solidline"></div>
+                </div>
+            </div>
+            <!-- end divider -->
+
+
+            <div class="blankline30"></div>
+
+        </div>
+    </section>
+
+
+
+
+{% endblock %}

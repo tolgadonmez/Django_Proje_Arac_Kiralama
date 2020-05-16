@@ -1,8 +1,12 @@
 {% extends "homebase.html" %}
 
-{% block title %} Index Sayfası  {% endblock %}
-{% block keyword %} Index sayfası için anahtar kelimeler {% endblock %}
-{% block description %} Index sayfası için açıklama {% endblock %}
+{% block title %} {{ setting.title }}  {% endblock %}
+{% block keyword %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+{% endblock %}
 
 {% block slider %}
     {% include "slider.html" %}
