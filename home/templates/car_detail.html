@@ -1,0 +1,206 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{ car.title }}  {% endblock %}
+{% block keyword %} {{ car.keyword }} {% endblock %}
+{% block description %} {{ car.description }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="inner-heading">
+                        <ul class="breadcrumb">
+                            <li><a href="#">Anasayfa</a> <i class="icon-angle-right"></i></li>
+                            <li class="active"><a href="/category/{{car.category_id}}/{{ car.category.slug }}">{{car.category}}</a></li>
+                            <li class="active">{{car.title}}</li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+
+                <div class="span7">
+
+
+                    <ul>
+                        <div>
+                            <h2>{{ car.title }}</h2>
+                        </div>
+                        <img src="{{car.image.url }}" style="height:300px; width:450px " />
+                        <article >
+                            <a class="icon-zoom-in" data-pretty="prettyPhoto" href="{{car.image.url}}">
+                            </a>
+
+                        </article>
+                    </ul>
+
+                    <ul class="bxslider">
+                        {% for rs in images %}
+                            <li>
+
+                                <div>
+                                    <img src="{{rs.image.url}}" style="height:400px; width:550px " alt="" />
+
+                                    <article>
+                                        <a class="icon-zoom-in" data-pretty="prettyPhoto" href="{{rs.image.url}}">
+                                        </a>
+                                        <div>
+                                            <h4>{{ rs.title }}</h4>
+                                        </div>
+                                    </article>
+
+                                </div>
+                            </li>
+
+                        {% endfor %}
+                    </ul>
+
+                </div>
+
+
+
+                <div class="span5">
+                    <article>
+                        <div class="row">
+
+                            <div class="span5">
+                                <div class="post-image">
+                                    <div class="post-heading">
+                                        <h3><a href="#">{{ product.title }}</a></h3>
+                                    </div>
+                                    <h4><b>Detaylar</b></h4>
+                                    <table class="table">
+                                        <tbody>
+
+                                        <tr>
+                                            <th>Description</th>
+                                            <td>{{ car.description }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Keywords</th>
+                                            <td>{{ car.keywords }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Marka</th>
+                                            <td>{{ car.marka }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Model</th>
+                                            <td>{{ car.model }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Price</th>
+                                            <td>{{ car.price }} </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+
+            <div class="tabs">
+                <ul class="nav nav-tabs">
+
+                    <li><a href="#two" data-toggle="tab">Detail</a></li>
+                    <li><a href="#three" data-toggle="tab">Comments</a></li>
+                </ul>
+                <div class="tab-content">
+
+                    <div class="tab-pane" id="two">
+                        <p>
+                            {{ car.detail |safe }}
+
+                        </p>
+
+                    </div>
+                    <div class="tab-pane" id="three">
+
+                        {% for rs in comments %}
+                            <div><i class="icon-user"></i> <h7><b>{{ rs.user.first_name }}</b></h7> </div>
+                            <div><i class="icon-time"></i> <h7><b>{{ rs.create_at }}</b></h7> </div>
+
+                            <h6>{{ rs.subject }}  [Rate : {{ rs.rate }}]</h6>
+                            <p>
+                                <h6>Comment :  {{ rs.comment }}</h6>
+                            </p>
+                            <div class="solidline"></div>
+
+                        {% endfor %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert-success{{ message.tags }}" role="alert">
+                                    {{ message }}
+                                </div>
+
+                            {% endfor %}
+                        {% endif %}
+
+                        <h4><strong>Write your comment </strong> </h4>
+
+                        <form name="comment" action="/car/addcomment/{{car.id}}" method="post" role="form" class="contactForm">
+                            <div class="row">
+                                {% csrf_token %}
+                                <div class="span2 form-group">
+                                    <input type="text" id="id_subject" name="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="span4 form-group">
+                                    <select id="id_rate" name="rate">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+
+                                <div class="span6 form-group">
+                                <textarea id="id_comment" name="comment" maxlength="255" rows="5" data-rule="required" data-msg="Please write something for us"
+                                          placeholder="Comment"></textarea>
+                                    <div class="validation"></div>
+                                    <div class="text-center">
+
+                                        <input type="hidden" name="token" value=""/>
+                                        {% if user.id is not None %}
+                                            <button class="btn btn-theme margintop10" type="submit">Send Comment</button>
+                                        {% else %}
+                                            Yorum Eklemek İçin Giriş Yapınız!
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+{% endblock %}

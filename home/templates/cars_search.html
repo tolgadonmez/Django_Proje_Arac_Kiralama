@@ -1,0 +1,70 @@
+{% extends "homebase.html" %}
+
+{% block title %} Cars Search Results  {% endblock %}
+{% block keyword %} {{ categorydata.keywords }} {% endblock %}
+{% block description %} {{ categorydata.description }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="inner-heading">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
+                            <li><a href="#">Pages</a> <i class="icon-angle-right"></i></li>
+                            <li class="active">{{categorydata.title}}</li>
+                        </ul>
+                        <h2>Hakkımızda</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+
+
+                    <table cellpadding="3"  width="1200" >
+                        <tr>
+                            <th align="left">Image</th>
+                            <th>Car Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                        </tr>
+
+                        {% for rs in cars %}
+                            <tr class="">
+                                <td align="left"><a href="/car/{{ rs.id }}/{{ rs.slug }}"><img src="{{ rs.image.url }}" style="width: 250px; height: 150px" alt=""> </a> </td>
+                                <td align="center"><h6><a href="/car/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6> </td>
+                                <td align="center"><h6><a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}">{{ rs.category }} </a> </h6></td>
+                                <td align="center"><h6>{{ rs.price }}</h6></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+
+            </div>
+
+            <!-- divider -->
+
+            <!-- end divider -->
+
+
+
+
+        </div>
+    </section>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{ categorydata.title }}  {% endblock %}
+{% block keyword %} {{ categorydata.keyword }} {% endblock %}
+{% block description %} {{ categorydata.description  }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+    <section id="inner-headline">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="inner-heading">
+              <ul class="breadcrumb">
+                <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
+                <li class="active">{{ categorydata.title }}</li>
+              </ul>
+              <h2>{{ categorydata.title }}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="content">
+
+        <h1 class="container">{{ categorydata.title }} </h1>
+      <div class="container">
+        <div class="row">
+
+          <div class="span12">
+
+
+    <section id="content">
+
+
+      <div class="">
+        <div class="row">
+          <div class="span12">
+
+
+              <div class="">
+                <div class="post-heading">
+
+                </div>
+
+                  {% for rs in cars %}
+
+                       <img src="{{rs.image.url}}" style="width: 200px; height: 200px" alt="" />
+                            <div class="container">
+
+                                    <h4><a style="color: #fd5559" href="/car/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</a></h4>
+
+                                       Price: <h7>{{ rs.price }}</h7>
+
+                            </div>
+
+                  {% endfor %}
+
+              </div>
+
+
+
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+          </div>
+
+        </div>
+
+        <!-- divider -->
+        <div class="row">
+          <div class="span12">
+            <div class="solidline"></div>
+          </div>
+        </div>
+        <!-- end divider -->
+
+
+        <div class="blankline30"></div>
+
+      </div>
+    </section>
+
+
+
+
+{% endblock %}
