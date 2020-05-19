@@ -69,6 +69,8 @@ class ContactFormu(ModelForm):
             'email': TextInput(attrs={'class': 'input', 'placeholder': 'Email Address'}),
             'message': Textarea(attrs={'class': 'input', 'placeholder': 'Your Message', 'rows': '5'}),
         }
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(blank=True, max_length=20)
@@ -81,13 +83,14 @@ class UserProfile(models.Model):
         return self.user.username
 
     def user_name(self):
-        return self.user.first_name + ' ' + self.user.first_name + ' ['+ self.user.username + ']'
+        return self.user.first_name + ' ' + self.user.last_name + ' [' + self.user.username + ']'
 
     def image_tag(self):
         if self.image:
             return mark_safe('<img src="%s" style="width: 60px; height:50px;" />' % self.image.url)
         else:
             return 'No Image Found'
+
 
 class UserProfileForm(ModelForm):
     class Meta:

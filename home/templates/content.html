@@ -1,38 +1,38 @@
 {% load static %}
 
 
+<section id="works">
+    <div class="container">
 
-    <section id="works">
-      <div class="container">
         <div class="row">
 
             <h4 class="title"><strong>Cars</strong></h4>
             <div class="row">
                 {% for rs in cars %}
 
-              <div class="grid cs-style-4">
-                <div class="span3">
-                  <div class="item">
-                    <figure>
-                      <div><img src="{{ rs.image.url }}" style="height:300px; width:650px "  alt="" /></div>
-                      <figcaption>
-                        <div>
+                    <div class="grid cs-style-4">
+                    <div class="span3">
+                        <div class="item">
+                            <figure>
+                                <div><img src="{{ rs.image.url }}" style="height:300px; width:650px "  alt="" /></div>
+                                <figcaption>
+                                    <div>
 
-								<a href="#"><i class="icon-file icon-circled icon-bglight icon-2x"></i></a>
-                            <h4><a style="color: #1e347b" href="/car/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h4>
+                                        <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x"></i></a>
+                                        <h4><a style="color: #1e347b" href="/car/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h4>
 
+                                    </div>
+                                </figcaption>
+                            </figure>
                         </div>
-                      </figcaption>
-                    </figure>
-                  </div>
+                    </div>
+                {% endfor %}
+
+
                 </div>
-                  {% endfor %}
-
-
-              </div>
 
             </div>
 
         </div>
-      </div>
-    </section>
+    </div>
+</section>

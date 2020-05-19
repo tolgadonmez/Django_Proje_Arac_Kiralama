@@ -1,4 +1,5 @@
 {% load static %}
+ <script src="{% static 'js/fotorama.js'%}"></script>
 
 <header>
     <div class="top">
@@ -48,9 +49,11 @@
         <div class="row nomargin">
             <div class="span2">
                 <div class="logo">
-                    <a href="index.html"><img src="{% static 'img/logo.png'%}" alt="" /></a>
+                    <a href="/"><img src="{% static 'img/logo.png'%}" alt="" /></a>
                 </div>
             </div>
+
+
             <div class="span2">
                 <div class="widget">
                     <form action="/search/" method="post">
@@ -69,12 +72,13 @@
                                     {% endif %}
                                 {% endrecursetree %}
                             </select>
-                            <button class="btn btn-theme"><i class="icon-search">Search</i></button>
+                            <button type="submit" class="btn btn-theme"><i class="icon-search">Search</i></button>
                         </div>
                     </form>
                 </div>
 
             </div>
+
             <div class="span8">
                 <div class="navbar navbar-static-top">
                     <div class="navigation">
@@ -84,7 +88,7 @@
                                     <a href="/"><i class="icon-home"></i> Anasayfa </a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#">Araçlar</a>
+                                    <a>Araçlar</a>
                                     <ul class="dropdown-menu">
                                         {% load mptt_tags %}
                                         {% recursetree category %}
@@ -100,10 +104,10 @@
 
                                     </ul>
                                 </li>
-                                <li class="dropdown">
+                                <li>
                                     <a href="/hakkimizda">Hakkımızda </a>
                                 </li>
-                                <li class="dropdown">
+                                <li>
                                     <a href="/referanslar">Referanslar </a>
 
                                 </li>
@@ -113,7 +117,7 @@
                                 </li>
                                 {% if user.id is not None %}
                                     <li>
-                                        <a href="/user">{{ user.first_name }} </a>
+                                        <a href="/user"><img src="{{ profile.image.url }}" style="height: 30px " class="img-circle" alt="">{{ user.first_name }} </a>
                                     </li>
 
                                     <li><a href="/logout/">Logout</a></li>
