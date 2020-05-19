@@ -148,9 +148,10 @@
                             <div class="solidline"></div>
 
                         {% endfor %}
+
                         {% if messages %}
                             {% for message in messages %}
-                                <div class="alert-success{{ message.tags }}" role="alert">
+                                <div class="alert alert{ message.tags }}" role="alert">
                                     {{ message }}
                                 </div>
 
@@ -186,7 +187,7 @@
                                         {% if user.id is not None %}
                                             <button class="btn btn-theme margintop10" type="submit">Send Comment</button>
                                         {% else %}
-                                            Yorum Eklemek İçin Giriş Yapınız!
+                                            <a href="/login/" >Yorum Eklemek İçin Giriş Yapınız!</a>
                                         {% endif %}
                                     </div>
                                 </div>

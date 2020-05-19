@@ -1,0 +1,94 @@
+{% extends "homebase.html" %}
+
+{% block title %} Login{{ setting.company }}  {% endblock %}
+{% block keyword %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="inner-heading">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
+
+                            <li class="active">Login</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="span12">
+
+                    <h4> <b>Login Formu</b> </h4>
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert{{ message.tags }}" role="alert">
+                                {{ message }}
+                            </div>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <label >Username</label>
+                        <input class="form-control" type="text"  name="username" placeholder="User Name" required>
+                        <label >Password</label>
+                        <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        <div>
+                        <button class="btn btn-lg btn-primary" type="submit">
+                            Sign in
+                        </button>
+                            </div>
+                        <div>
+                        Don't have an account yet?<br/>
+                        <a class="text-center" href="/signup">
+                            Create an account
+                        </a>
+                    </div>
+                    </form>
+
+
+
+
+                </div>
+
+            </div>
+
+            <!-- divider -->
+            <div class="row">
+                <div class="span12">
+                    <div class="solidline"></div>
+                </div>
+            </div>
+            <!-- end divider -->
+
+
+            <div class="blankline30"></div>
+
+        </div>
+    </section>
+
+
+
+
+{% endblock %}

@@ -2,49 +2,57 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>{% block title %}Django Araç Kiralama Sitesi {% endblock %}</title>
-  <meta name="keywords" content="{% block keywords %}Anasayfa için anahtar kelimeler {% endblock %}" />
-  <meta name="description" content="{% block description %}Anasayfa için kısa açıklama {% endblock %}" />
+    <meta name="keywords" content="{% block keywords %}Anasayfa için anahtar kelimeler {% endblock %}" />
+    <meta name="description" content="{% block description %}Anasayfa için kısa açıklama {% endblock %}" />
 
-  <link href="https://fonts.googleapis.com/css?family=Handlee|Open+Sans:300,400,600,700,800}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Handlee|Open+Sans:300,400,600,700,800}" rel="stylesheet">
     {% load static %}
-  <!-- css -->
+    <!-- css -->
 
-  <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet" />
-  <link href="{% static 'css/bootstrap-responsive.css'%} " rel="stylesheet" />
-  <link href="{% static 'css/flexslider.css' %}" rel="stylesheet" />
-  <link href="{% static 'css/prettyPhoto.css'%}" rel="stylesheet" />
-  <link href="{% static 'css/camera.css'%}" rel="stylesheet" />
-  <link href="{% static 'css/jquery.bxslider.css'%}" rel="stylesheet" />
-  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap-responsive.css'%} " rel="stylesheet" />
+    <link href="{% static 'css/flexslider.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/prettyPhoto.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/camera.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/jquery.bxslider.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" />
 
-  <!-- Theme skin -->
-  <link href="{% static 'color/default.css'%}" rel="stylesheet" />
+    <!-- Theme skin -->
+    <link href="{% static 'color/default.css'%}" rel="stylesheet" />
 
-  <!-- Fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png'%}" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png'%}" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png'%}" />
-  <link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png'%}" />
-  <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png'%}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png'%}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png'%}" />
+    <link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png'%}" />
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
 
-  <!-- =======================================================
-    Theme Name: Eterna
-    Theme URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
+    <!-- =======================================================
+      Theme Name: Eterna
+      Theme URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
+      Author: BootstrapMade.com
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
+    <!-- jQuery !-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+    <!-- jQuery UI !-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+
+
     {% block head %} {% endblock %}
 </head>
-    {% include 'header.html' %}
-    {% block slider %} {% endblock %}
-    {% block content %} } {% endblock %}
-    {% include 'footer.html' %}
-    {% block footer %} {% endblock %}
+{% include 'header.html' %}
+{% block slider %} {% endblock %}
+{% block content %} } {% endblock %}
+{% include 'footer.html' %}
+{% block footer %} {% endblock %}
 <body>
 
 </body>

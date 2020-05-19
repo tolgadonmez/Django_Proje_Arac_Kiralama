@@ -1,100 +1,135 @@
 {% load static %}
+
 <header>
-      <div class="top">
+    <div class="top">
         <div class="container">
-          <div class="row">
-            <div class="span6">
-              <p class="topcontact"><i class="icon-phone"></i> +62 088 999 123</p>
-            </div>
-            <div class="span6">
+            <div class="row">
+                <div class="span6">
+                    <p class="topcontact"><i class="icon-phone"></i> +62 088 999 123</p>
+                </div>
+                <div class="span6">
 
-              <ul class="social-network">
-                <li><a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-white"></i></a></li>
-                <li><a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-white"></i></a></li>
-                <li><a href="#" data-placement="bottom" title="Linkedin"><i class="icon-linkedin icon-white"></i></a></li>
-                <li><a href="#" data-placement="bottom" title="Pinterest"><i class="icon-pinterest  icon-white"></i></a></li>
-                <li><a href="#" data-placement="bottom" title="Google +"><i class="icon-google-plus icon-white"></i></a></li>
-                <li><a href="#" data-placement="bottom" title="Dribbble"><i class="icon-dribbble icon-white"></i></a></li>
-              </ul>
+                    <ul class="social-network">
+                        <li><a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-white"></i></a></li>
+                        <li><a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-white"></i></a></li>
+                        <li><a href="#" data-placement="bottom" title="Linkedin"><i class="icon-linkedin icon-white"></i></a></li>
+                        <li><a href="#" data-placement="bottom" title="Pinterest"><i class="icon-pinterest  icon-white"></i></a></li>
+                        <li><a href="#" data-placement="bottom" title="Google +"><i class="icon-google-plus icon-white"></i></a></li>
+                        <li><a href="#" data-placement="bottom" title="Dribbble"><i class="icon-dribbble icon-white"></i></a></li>
+                    </ul>
 
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="container">
+    </div>
+
+    <script>
+
+        $(function() {
+            $("#query").autocomplete({
+                source: "/search_auto/",
+                select: function (event, ui) { //item selected
+                    AutoCompleteSelectHandler(event, ui)
+                },
+                minLength: 2,
+            });
+        });
+
+        function AutoCompleteSelectHandler(event, ui)
+        {
+            var selectedObj = ui.item;
+        }
+
+    </script>
+
+    <div class="container">
 
 
         <div class="row nomargin">
-          <div class="span2">
-            <div class="logo">
-              <a href="index.html"><img src="{% static 'img/logo.png'%}" alt="" /></a>
+            <div class="span2">
+                <div class="logo">
+                    <a href="index.html"><img src="{% static 'img/logo.png'%}" alt="" /></a>
+                </div>
             </div>
-          </div>
-        <div class="span2">
+            <div class="span2">
                 <div class="widget">
-                <form action="/search/" method="post">
-                  <div>
-                      {% csrf_token %}
-                    <input class="span2" name="query" type="text" placeholder="Type here">
-                      <button class="btn btn-theme"><i class="icon-search">Search</i></button>
-                  </div>
-                </form>
-              </div>
+                    <form action="/search/" method="post">
+                        <div>
+                            {% csrf_token %}
+                            <input  id="query" name="query" type="text" placeholder="Type here">
+                            {% load mptt_tags %}
+                            <select name="catid">
+                                <option value="0">All Categories</option>
+                                {% recursetree category %}
+                                    {% if node.is_leaf_node %}<option value="{{ node.id }}">{{ node.title }}</option> {% endif %}
+                                    {% if not node.is_leaf_node %}
+                                        <optgroup label="{{ node.title }}">
+                                            {{ children }}
+                                        </optgroup>
+                                    {% endif %}
+                                {% endrecursetree %}
+                            </select>
+                            <button class="btn btn-theme"><i class="icon-search">Search</i></button>
+                        </div>
+                    </form>
+                </div>
 
-        </div>
-          <div class="span8">
-            <div class="navbar navbar-static-top">
-              <div class="navigation">
-                <nav>
-                  <ul class="nav topnav">
-                    <li class="dropdown active">
-                      <a href="/"><i class="icon-home"></i> Anasayfa </a>
-                    </li>
-                      <li class="dropdown">
-                      <a href="#">Araçlar</a>
-                      <ul class="dropdown-menu">
-                          {% load mptt_tags %}
-                          {% recursetree category %}
-                        <li><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
-
-                          {% if not node.is_leaf_node %}
-                          <ul class="dropdown-menu sub-menu-level1">
-                              <li><a href="/category/{{ node.id }}/{{ node.slug }}">{{children}}</a></li>
-                          </ul>
-                          {% endif %}
-                        </li>
-                        {% endrecursetree %}
-
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="/hakkimizda">Hakkımızda </a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="/referanslar">Referanslar </a>
-
-                    </li>
-
-                    <li class="dropdown">
-                      <a href="#">Blog <i class="icon-angle-down"></i></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                        <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-                        <li><a href="blog-fullwidth.html">Blog fullwidth</a></li>
-                        <li><a href="post-left-sidebar.html">Post left sidebar</a></li>
-                        <li><a href="post-right-sidebar.html">Post right sidebar</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                        <a href="/iletisim">İletişim </a>
-
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-              <!-- end navigation -->
             </div>
-          </div>
+            <div class="span8">
+                <div class="navbar navbar-static-top">
+                    <div class="navigation">
+                        <nav>
+                            <ul class="nav topnav">
+                                <li class="dropdown active">
+                                    <a href="/"><i class="icon-home"></i> Anasayfa </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Araçlar</a>
+                                    <ul class="dropdown-menu">
+                                        {% load mptt_tags %}
+                                        {% recursetree category %}
+                                            <li><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
+
+                                                {% if not node.is_leaf_node %}
+                                                    <ul class="dropdown-menu sub-menu-level1">
+                                                        <li><a href="/category/{{ node.id }}/{{ node.slug }}">{{children}}</a></li>
+                                                    </ul>
+                                                {% endif %}
+                                            </li>
+                                        {% endrecursetree %}
+
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="/hakkimizda">Hakkımızda </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="/referanslar">Referanslar </a>
+
+                                </li>
+                                <li>
+                                    <a href="/iletisim">İletişim </a>
+
+                                </li>
+                                {% if user.id is not None %}
+                                    <li>
+                                        <a href="/user">{{ user.first_name }} </a>
+                                    </li>
+
+                                    <li><a href="/logout/">Logout</a></li>
+                                {% else %}
+                                    <li>
+                                        <a href="/login/"><i class="icon-lock"></i> Login </a>
+                                    </li>
+                                {% endif %}
+
+
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- end navigation -->
+                </div>
+            </div>
         </div>
-      </div>
-    </header>
+    </div>
+</header>

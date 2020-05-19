@@ -11,6 +11,7 @@ def index(request):
     return HttpResponse("Car Page")
 
 @login_required(login_url='/login')
+
 def addcomment(request, id):
     url = request.META.get('HTTP_REFERER')
     if request.method == 'POST':
