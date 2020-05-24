@@ -1,0 +1,100 @@
+{% extends "homebase.html" %}
+
+{% block title %} Car Comments {% endblock %}
+{% block keyword %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="inner-heading">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
+                            <li><a href="#">Pages</a> <i class="icon-angle-right"></i></li>
+                            <li class="active">User Comments</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+
+                {% include "user_panel.html" %}
+
+
+                <div class="span8">
+                    <article>
+                        <div class="row">
+
+                            <div class="span8">
+                                <div class="post-image">
+                                    <div class="post-heading">
+                                        <h3><a href="#">User Comments</a></h3>
+                                    </div>
+                                    {% if messages %}
+                                        {% for message in messages %}
+                                            <div class="alert alert{ message.tags }}" role="alert">
+                                                {{ message }}
+                                            </div>
+
+                                        {% endfor %}
+                                    {% endif %}
+                                    <table>
+                                        <tr>
+                                            <th class="text-left">Car </th>
+                                            <th class="text-left">Rate </th>
+                                            <th class="text-left">Subject </th>
+                                            <th class="text-left">Comment </th>
+                                            <th class="text-left">Status </th>
+                                            <th class="text-left">Date </th>
+                                            <th class="text-left">Detail </th>
+                                        </tr>
+                                        {% for rs in comments %}
+                                            <tr>
+                                                <td class="text-left">
+                                                    <a href="/car/{{ rs.car_id }}/{{ rs.car_slug }}">
+                                                        <strong>{{ rs.car.title }} </strong>
+                                                    </a>
+                                                </td>
+                                                <td class="text-center">{{ rs.rate }}</td>
+                                                <td class="text-left">{{ rs.subject }}</td>
+                                                <td class="text-left">{{ rs.comment }}</td>
+                                                <td class="text-left">{{ rs.status }}</td>
+                                                <td class="text-left">{{ rs.create_at }}</td>
+                                                <td class="text-left"><a class="btn btn-medium btn-danger" href="/user/deletecomment/{{ rs.id }}" onclick="return confirm('Will be Delete ! Are You Sure? ')">Delete </a> </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+{% endblock %}

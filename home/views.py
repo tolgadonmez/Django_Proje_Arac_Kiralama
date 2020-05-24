@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from car.models import Car, Category, Images, Comment
+from car.models import Car, Category, Images, Comment, Reservation
 from home.forms import SearchForm, SignUpForm
 from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile
 
@@ -95,10 +95,12 @@ def car_detail(request, id, slug):
     car = Car.objects.get(pk=id)
     images = Images.objects.filter(car_id=id)
     comments = Comment.objects.filter(car_id=id, status='True')
+    reservations = Reservation.objects.filter(car_id=id, status='True')
     context = {'car': car,
                'category': category,
                'images': images,
                'comments': comments,
+               'reservations': reservations,
                'profile': profile}
     return render(request, 'car_detail.html', context)
 

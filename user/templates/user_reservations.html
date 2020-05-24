@@ -1,0 +1,104 @@
+{% extends "homebase.html" %}
+
+{% block title %} Reservations {% endblock %}
+{% block keyword %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="inner-heading">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
+                            <li><a href="#">Pages</a> <i class="icon-angle-right"></i></li>
+                            <li class="active">User Reservations</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+
+                {% include "user_panel.html" %}
+
+
+                <div class="span8">
+                    <article>
+                        <div class="row">
+
+                            <div class="span8">
+                                <div class="post-image">
+                                    <div class="post-heading">
+                                        <h3><a href="#">Reservations</a></h3>
+                                    </div>
+                                    {% if messages %}
+                                        {% for message in messages %}
+                                            <div class="alert alert{ message.tags }}" role="alert">
+                                                {{ message }}
+                                            </div>
+
+                                        {% endfor %}
+                                    {% endif %}
+                                    <table>
+                                        <tr>
+                                            <th class="text-left">Car </th>
+                                            <th class="text-left">User </th>
+                                            <th class="text-left">E-Mail </th>
+                                            <th class="text-left">Phone </th>
+                                            <th class="text-left">Status </th>
+                                            <th class="text-left">Days </th>
+                                            <th class="text-left">Price </th>
+                                            <th class="text-left">Total </th>
+                                            <th class="text-left">Detail </th>
+                                        </tr>
+                                        {% for rs in reservations %}
+                                            <tr>
+                                                <td class="text-left">
+                                                    <a href="/car/{{ rs.car_id }}/{{ rs.car_slug }}">
+                                                        <strong>{{ rs.car.title }} </strong>
+                                                    </a>
+                                                </td>
+                                                <td class="text-center">{{ rs.user }}</td>
+                                                <td class="text-left">{{ rs.email }}</td>
+                                                <td class="text-left">{{ rs.phone }}</td>
+                                                <td class="text-left">{{ rs.status }}</td>
+                                                <td class="text-center">{{ rs.days }}</td>
+                                                <td class="text-center">{{ rs.price }}</td>
+                                                <td class="text-center">{{ rs.total }}</td>
+                                                <td class="text-left"><a class="btn btn-medium btn-danger" href="/user/deletereservation/{{ rs.id }}" onclick="return confirm('Will be Delete ! Are You Sure? ')">Delete </a> </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+{% endblock %}

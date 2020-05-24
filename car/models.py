@@ -48,6 +48,7 @@ class Category(MPTTModel):
     def get_absolute_url(self):
         return reverse('category_detail', kwargs={'slug': self.slug})
 
+
 class Car(models.Model):
     STATUS = (
         ('True', 'Evet'),
@@ -118,7 +119,45 @@ class Comment(models.Model):
     def __str__(self):
         return self.subject
 
+
 class CommentForm(ModelForm):
     class Meta:
         model = Comment
         fields = ['subject', 'comment', 'rate']
+
+
+class Reservation(models.Model):
+    STATUS = (
+        ('New', 'Yeni'),
+        ('Accepted', 'Onaylandı'),
+        ('Canceled', 'Reddedildi'),
+    )
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(blank=True, max_length=20)
+    email = models.CharField(blank=True, max_length=50)
+    phone = models.CharField(blank=True, max_length=20)
+    address = models.CharField(blank=True, max_length=150)
+
+    days = models.IntegerField(default='1')
+
+    status = models.CharField(max_length=10, choices=STATUS, default='New')
+    ip = models.CharField(blank=True, max_length=20)
+    message = models.CharField(blank=True, max_length=255)
+    note = models.CharField(blank=True, max_length=100)
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
+    @property
+    def total(self):
+        return self.days * self.car.price
+
+    @property
+    def price(self):
+        return self.car.price
+
+
+class ReservationForm(ModelForm):
+    class Meta:
+        model = Reservation
+        fields = ['name', 'email', 'phone', 'address', 'days']

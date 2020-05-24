@@ -1,0 +1,88 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{ profile.user_name }} Profile {% endblock %}
+{% block keyword %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="inner-heading">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
+                            <li><a href="#">Pages</a> <i class="icon-angle-right"></i></li>
+                            <li class="active">User Update</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+
+                {% include "user_panel.html" %}
+
+
+                <div class="span8">
+                    <article>
+                        <div class="row">
+
+                            <div class="span8">
+                                <div class="post-image">
+                                    <div class="post-heading">
+                                        <h3><a href="#">User Information</a></h3>
+                                    </div>
+
+                                    {% if messages %}
+                                        {% for message in messages %}
+                                            <div class="alert alert{ message.tags }}" role="alert">
+                                                {{ message }}
+                                            </div>
+
+                                        {% endfor %}
+                                    {% endif %}
+                                    <div>
+                                        <img src="{{ user.userprofile.image.url }}" style="height: 80px " class="img-circle" alt="">
+                                    </div>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <fieldset>
+                                            {{ user_form.as_p }}
+                                            {{ profile_form.as_p }}
+                                        </fieldset>
+                                        <div>
+                                            <button class="btn btn-danger" type="submit">Update</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+{% endblock %}

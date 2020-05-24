@@ -2,21 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50364f8e-bc8d-4bb4-9572-46836977a811" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/car/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/css/camera.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/camera.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/homebase.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/homebase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/car_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/car_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -131,7 +129,12 @@
       <workItem from="1589820200921" duration="49000" />
       <workItem from="1589826091829" duration="24773000" />
       <workItem from="1589857215837" duration="221000" />
-      <workItem from="1589901809180" duration="19120000" />
+      <workItem from="1589901809180" duration="19413000" />
+      <workItem from="1590015005185" duration="397000" />
+      <workItem from="1590049163019" duration="35000" />
+      <workItem from="1590173479801" duration="594000" />
+      <workItem from="1590177560627" duration="1133000" />
+      <workItem from="1590260593315" duration="18918000" />
     </task>
     <task id="LOCAL-00001" summary="6.video son hali">
       <created>1589412321161</created>
@@ -175,7 +178,21 @@
       <option name="project" value="LOCAL" />
       <updated>1589856940429</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="25.video sonu">
+      <created>1589926890072</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589926890072</updated>
+    </task>
+    <task id="LOCAL-00008" summary="20.05.2020">
+      <created>1589926974938</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589926974938</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,36 +216,37 @@
     <MESSAGE value="15.videoya kadarki ilerleme" />
     <MESSAGE value="20.video sonu" />
     <MESSAGE value="25.video sonu" />
-    <option name="LAST_COMMIT_MESSAGE" value="25.video sonu" />
+    <MESSAGE value="20.05.2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="20.05.2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="421" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589562118030">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="421" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1589562118030" />
-    <state x="381" y="0" key="CommitChangelistDialog2" timestamp="1589926932986">
+    <state x="381" y="0" key="CommitChangelistDialog2" timestamp="1589926974059">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="381" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589926932986" />
+    <state x="381" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589926974059" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1589412681124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589412681124" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1589926896833">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1589927029785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589926896833" />
-    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589926960442">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589927029785" />
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590281554984">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1589926960442" />
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1590281554984" />
     <state x="484" y="155" key="git4idea.merge.GitMergeDialog" timestamp="1589594511247">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="484" y="155" key="git4idea.merge.GitMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1589594511247" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589667288034">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590272013175">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1589667288034" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590272013175" />
   </component>
 </project>

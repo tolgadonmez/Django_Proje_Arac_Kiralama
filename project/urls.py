@@ -30,7 +30,6 @@ urlpatterns = [
     path('referanslar/', views.referanslar, name='referanslar'),
     path('iletisim/', views.iletisim, name='iletisim'),
 
-
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('category/<int:id>/<slug:slug>/', views.category_cars, name='category'),
     path('car/<int:id>/<slug:slug>/', views.car_detail, name='car_detail'),
