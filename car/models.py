@@ -138,15 +138,19 @@ class Reservation(models.Model):
     email = models.CharField(blank=True, max_length=50)
     phone = models.CharField(blank=True, max_length=20)
     address = models.CharField(blank=True, max_length=150)
-
-    days = models.IntegerField(default='1')
-
+    location = models.CharField(blank=True, max_length=50)
+    days = models.IntegerField()
+    checkin = models.DateField(null=True)
+    checkout = models.DateField(null=True)
     status = models.CharField(max_length=10, choices=STATUS, default='New')
     ip = models.CharField(blank=True, max_length=20)
     message = models.CharField(blank=True, max_length=255)
     note = models.CharField(blank=True, max_length=100)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.car.title
 
     @property
     def total(self):
@@ -160,4 +164,4 @@ class Reservation(models.Model):
 class ReservationForm(ModelForm):
     class Meta:
         model = Reservation
-        fields = ['name', 'email', 'phone', 'address', 'days']
+        fields = ['name', 'email', 'phone', 'address', 'location', 'checkin', 'checkout', 'days']

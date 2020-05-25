@@ -44,6 +44,14 @@
                                 <div class="post-image">
                                     <div class="post-heading">
                                         <h3><a href="#">User Information</a></h3>
+                                            {% if messages %}
+                                        {% for message in messages %}
+                                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                                {{ message }}
+                                            </div>
+
+                                        {% endfor %}
+                                    {% endif %}
                                     </div>
                                     <table class="table">
                                         <tbody>

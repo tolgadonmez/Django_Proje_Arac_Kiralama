@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
 
-                    {% include "user_panel.html" %}
+                {% include "user_panel.html" %}
 
 
                 <div class="span8">
@@ -43,9 +43,37 @@
                             <div class="span8">
                                 <div class="post-image">
                                     <div class="post-heading">
-                                        <h3><a href="#">Reservation Information</a></h3>
+                                        <h3><a href="#">Reservation Information for {{ car.title }}</a></h3>
                                     </div>
+                                    <form name="reservation" action="/car/addreservation/{{ car.id }}" method="post" role="form" class="contactForm">
+                                        {% csrf_token %}
 
+                                        <input type="text" id="id_name" name="name" value="" placeholder="Name" />
+                                        <div class="validation"></div>
+                                        <input type="text" id="id_email" name="email" placeholder="Email"/>
+                                        <div class="validation"></div>
+                                        <input type="text" id="id_phone" name="phone" placeholder="Phone"  />
+                                        <div class="validation"></div>
+                                        <input type="text" id="id_address" name="address" placeholder="Address"  />
+                                        <div class="validation"></div>
+                                        <input type="text" id="id_location" name="location"  placeholder="Location" />
+                                        <div class="validation"></div>
+                                        <input type="text" id="id_price" name="price" value="{{ car.price }}" placeholder="Price" />
+                                        <div class="validation"></div>
+                                        Checkin:<input type="date" id="id_checkin" name="checkin" placeholder="Checkin" />
+                                        <div class="validation"></div>
+                                        Checkout:<input type="date" id="id_checkout" name="checkout" placeholder="Checkout" />
+                                        <div class="validation"></div> <br>
+                                        Days:<input type="number" id="id_days" name="days" placeholder="" data-rule="minlen:4"  />
+                                        <div class="validation"></div>
+
+                                        {% if user.id is not None %}
+                                            <br>
+                                            <button class="btn btn-theme margintop10" type="submit">Reservation Request</button>
+                                        {% else %}
+                                            <a href="/login/" >Rezervasyon İçin Giriş Yapınız!</a>
+                                        {% endif %}
+                                    </form>
 
                                 </div>
 

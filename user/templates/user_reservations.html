@@ -1,6 +1,6 @@
 {% extends "homebase.html" %}
 
-{% block title %} Reservations {% endblock %}
+{% block title %}{{ profile.user_name }} Reservations {% endblock %}
 {% block keyword %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 
@@ -53,35 +53,45 @@
 
                                         {% endfor %}
                                     {% endif %}
-                                    <table>
+                                    <table class="table table-inbox">
+                                    <thead>
                                         <tr>
                                             <th class="text-left">Car </th>
                                             <th class="text-left">User </th>
                                             <th class="text-left">E-Mail </th>
                                             <th class="text-left">Phone </th>
+                                            <th class="text-left">Location </th>
                                             <th class="text-left">Status </th>
+                                            <th class="text-left">Checkin </th>
+                                            <th class="text-left">Checkout </th>
                                             <th class="text-left">Days </th>
                                             <th class="text-left">Price </th>
                                             <th class="text-left">Total </th>
                                             <th class="text-left">Detail </th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
                                         {% for rs in reservations %}
                                             <tr>
                                                 <td class="text-left">
-                                                    <a href="/car/{{ rs.car_id }}/{{ rs.car_slug }}">
+                                                    <a href="/car/{{ rs.car_id }}/{{ rs.car.slug }}">
                                                         <strong>{{ rs.car.title }} </strong>
                                                     </a>
                                                 </td>
                                                 <td class="text-center">{{ rs.user }}</td>
                                                 <td class="text-left">{{ rs.email }}</td>
                                                 <td class="text-left">{{ rs.phone }}</td>
+                                                <td class="text-left">{{ rs.location }}</td>
                                                 <td class="text-left">{{ rs.status }}</td>
+                                                <td class="text-center">{{ rs.checkin }}</td>
+                                                <td class="text-center">{{ rs.checkout }}</td>
                                                 <td class="text-center">{{ rs.days }}</td>
                                                 <td class="text-center">{{ rs.price }}</td>
                                                 <td class="text-center">{{ rs.total }}</td>
-                                                <td class="text-left"><a class="btn btn-medium btn-danger" href="/user/deletereservation/{{ rs.id }}" onclick="return confirm('Will be Delete ! Are You Sure? ')">Delete </a> </td>
+                                                <td class="text-left"><a class="btn btn-danger" href="/user/deletereservation/{{ rs.id }}" onclick="return confirm('Will be Delete ! Are You Sure? ')">Delete </a> </td>
                                             </tr>
                                         {% endfor %}
+                                    </tbody>
                                     </table>
 
                                 </div>

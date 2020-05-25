@@ -10,7 +10,10 @@ urlpatterns = [
     path('comments/', views.comments, name='comments'),
     path('reservations/', views.reservations, name='reservations'),
     path('deletecomment/<int:id>', views.deletecomment, name='deletecomment'),
-    path('deletereservation/<int:id>', views.deletereservation, name='deletereservation')
+    path('deletereservation/<int:id>', views.deletereservation, name='deletereservation'),
+    path('newreservation/<int:id>', views.newreservation, name='newreservation'),
+
+
 
 
 

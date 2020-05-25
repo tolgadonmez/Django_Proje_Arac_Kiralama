@@ -1,4 +1,6 @@
 import json
+
+
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponse, HttpResponseRedirect
@@ -7,7 +9,7 @@ from django.shortcuts import render
 # Create your views here.
 from car.models import Car, Category, Images, Comment, Reservation
 from home.forms import SearchForm, SignUpForm
-from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile
+from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile, FAQ
 
 
 def index(request):
@@ -15,36 +17,61 @@ def index(request):
     sliderdata = Car.objects.all()[:4]    #sliderda kaçtane araba gözükeceği
     category = Category.objects.all()
     cars = Car.objects.all()[:6]          #contentte kaçtane araba gözükeceği
-    current_user = request.user
-    profile = UserProfile.objects.get(user_id=current_user.id)
-    context = {'setting': setting,
-               'category': category,
-               'page': 'home',
-               'sliderdata': sliderdata,
-               'cars': cars,
-               'profile': profile}
+
+    if request.user.is_authenticated:
+        current_user = request.user
+
+        profile = UserProfile.objects.get(user_id=current_user.id)
+        context = {'setting': setting,
+                    'category': category,
+                    'page': 'home',
+                    'sliderdata': sliderdata,
+                    'cars': cars,
+                    'profile': profile
+                }
+    else:
+        context = {'setting': setting,
+                   'category': category,
+                   'page': 'home',
+                   'sliderdata': sliderdata,
+                   'cars': cars,
+                   }
+
     return render(request, 'index.html', context)
 
 
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
-    current_user = request.user
-    profile = UserProfile.objects.get(user_id=current_user.id)
-    context = {'setting': setting,
-               'category': category,
-               'profile': profile}
+    if request.user.is_authenticated:
+        current_user = request.user
+        profile = UserProfile.objects.get(user_id=current_user.id)
+        context = {'setting': setting,
+                'category': category,
+               'profile': profile
+                }
+    else:
+        context = {'setting': setting,
+                   'category': category,
+                   }
+
     return render(request, 'hakkimizda.html', context)
 
 
 def referanslar(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
-    current_user = request.user
-    profile = UserProfile.objects.get(user_id=current_user.id)
-    context = {'setting': setting,
+    if request.user.is_authenticated:
+        current_user = request.user
+        profile = UserProfile.objects.get(user_id=current_user.id)
+        context = {'setting': setting,
                'category': category,
                'profile': profile}
+
+    else:
+        context = {'setting': setting,
+                   'category': category,
+                   }
     return render(request, 'referanslarimiz.html', context)
 
 
@@ -59,49 +86,72 @@ def iletisim(request):
             data.message = form.cleaned_data['message']
             data.ip = request.META.get('REMOTE_ADDR')
             data.save()
-            messages.success(request, "Mesajınız Başarıyla Gönderilmiştir.Teşekkür Ederiz.")
+            messages.success(request, 'Mesajınız Başarıyla Gönderilmiştir.Teşekkür Ederiz.')
             return HttpResponseRedirect('/iletisim')
 
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
-    current_user = request.user
-    profile = UserProfile.objects.get(user_id=current_user.id)
     form = ContactFormu()
-    context = {'setting': setting,
-               'form': form,
-               'category': category,
-               'profile': profile}
+    if request.user.is_authenticated:
+        current_user = request.user
+        profile = UserProfile.objects.get(user_id=current_user.id)
+        context = {'setting': setting,
+                   'form': form,
+                   'category': category,
+                   'profile': profile}
+    else:
+        context = {'setting': setting,
+                   'form': form,
+                   'category': category,
+                   }
     return render(request, 'iletisim.html', context)
 
 
 def category_cars(request, id, slug):
     cars = Car.objects.filter(category_id=id)
     category = Category.objects.all()
-    current_user = request.user
-    profile = UserProfile.objects.get(user_id=current_user.id)
     categorydata = Category.objects.get(pk=id)
-    context = {'cars': cars,
+    if request.user.is_authenticated:
+        current_user = request.user
+        profile = UserProfile.objects.get(user_id=current_user.id)
+        context = {'cars': cars,
                'category': category,
                'slug': slug,
                'categorydata': categorydata,
-               'profile': profile}
+               'profile': profile
+                   }
+    else:
+        context = {'cars': cars,
+                   'category': category,
+                   'slug': slug,
+                   'categorydata': categorydata,
+                   }
     return render(request, 'cars.html', context)
 
 
 def car_detail(request, id, slug):
     category = Category.objects.all()
-    current_user = request.user
-    profile = UserProfile.objects.get(user_id=current_user.id)
     car = Car.objects.get(pk=id)
     images = Images.objects.filter(car_id=id)
     comments = Comment.objects.filter(car_id=id, status='True')
     reservations = Reservation.objects.filter(car_id=id, status='True')
-    context = {'car': car,
-               'category': category,
-               'images': images,
-               'comments': comments,
-               'reservations': reservations,
-               'profile': profile}
+    if request.user.is_authenticated:
+        current_user = request.user
+        profile = UserProfile.objects.get(user_id=current_user.id)
+        context = {'car': car,
+                   'category': category,
+                   'images': images,
+                   'comments': comments,
+                   'reservations': reservations,
+                   'profile': profile}
+    else:
+        context = {'car': car,
+                   'category': category,
+                   'images': images,
+                   'comments': comments,
+                   'reservations': reservations,
+                   }
+
     return render(request, 'car_detail.html', context)
 
 
@@ -110,8 +160,8 @@ def car_search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             category = Category.objects.all()
-            current_user = request.user
-            profile = UserProfile.objects.get(user_id=current_user.id)
+
+
             query = form.cleaned_data['query']
             catid = form.cleaned_data['catid']
 
@@ -119,10 +169,16 @@ def car_search(request):
                 cars = Car.objects.filter(title__icontains=query)
             else:
                 cars = Car.objects.filter(title__icontains=query, category_id=catid)
-
-            context = {'cars': cars,
-                       'category': category,
-                       'profile': profile}
+            if request.user.is_authenticated:
+                current_user = request.user
+                profile = UserProfile.objects.get(user_id=current_user.id)
+                context = {'cars': cars,
+                           'category': category,
+                           'profile': profile}
+            else:
+                context = {'cars': cars,
+                           'category': category,
+                           }
 
             return render(request, 'cars_search.html', context)
 
@@ -161,13 +217,18 @@ def login_view(request):
             login(request, user)
             return HttpResponseRedirect('/')
         else:
-            messages.warning(request, "Kullanıcı adı veya şifre yanlış! ")
+            messages.warning(request, 'Kullanıcı adı veya şifre yanlış! ')
             return HttpResponseRedirect('/login')
-    current_user = request.user
-    profile = UserProfile.objects.get(user_id=current_user.id)
+
     category = Category.objects.all()
-    context = {'category': category,
-               'profile': profile}
+    if request.user.is_authenticated:
+        current_user = request.user
+        profile = UserProfile.objects.get(user_id=current_user.id)
+        context = {'category': category,
+                   'profile': profile}
+    else:
+        context = {'category': category,
+                   }
 
     return render(request, 'login.html', context)
 
@@ -186,15 +247,39 @@ def signup_view(request):
             data.user_id = current_user.id
             data.image = "images/users/user.png"
             data.save()
-            messages.success(request, "Sitemize başarılı bir şekilde oldunuz.  ")
+            messages.success(request, 'Sitemize başarılı bir şekilde kayıt oldunuz.  ')
             return HttpResponseRedirect('/')
 
     form = SignUpForm()
-    current_user = request.user
-    profile = UserProfile.objects.get(user_id=current_user.id)
+
     category = Category.objects.all()
-    context = {'category': category,
-               'form': form,
-               'profile': profile}
+    if request.user.is_authenticated:
+        current_user = request.user
+        profile = UserProfile.objects.get(user_id=current_user.id)
+        context = {'category': category,
+                   'form': form,
+                   'profile': profile}
+    else:
+        context = {'category': category,
+                   'form': form,
+                   }
 
     return render(request, 'signup.html', context)
+
+
+def faq(request):
+    category = Category.objects.all()
+    #menu = Menu.objects.all()
+    faq = FAQ.objects.all()
+    if request.user.is_authenticated:
+        current_user = request.user
+        profile = UserProfile.objects.get(user_id=current_user.id)
+        context = {'category': category,
+               'faq': faq,
+               'profile': profile
+                }
+    else:
+        context = {'category': category,
+                   'faq': faq,
+                   }
+    return render(request, 'faq.html', context)

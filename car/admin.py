@@ -73,7 +73,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 class ReservationAdmin(admin.ModelAdmin):
-    list_display = ['car', 'user', 'days', 'price', 'total', 'status']
+    list_display = ['car', 'user', 'checkin', 'checkout', 'days', 'price', 'total', 'status']
     list_filter = ['user']
 
 

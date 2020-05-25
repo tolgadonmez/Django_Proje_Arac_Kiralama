@@ -37,23 +37,19 @@
 
 
                 <div class="span8">
+
                     <article>
                         <div class="row">
 
                             <div class="span8">
                                 <div class="post-image">
                                     <div class="post-heading">
+
                                         <h3><a href="#">User Information</a></h3>
+
                                     </div>
 
-                                    {% if messages %}
-                                        {% for message in messages %}
-                                            <div class="alert alert{ message.tags }}" role="alert">
-                                                {{ message }}
-                                            </div>
 
-                                        {% endfor %}
-                                    {% endif %}
                                     <div>
                                         <img src="{{ user.userprofile.image.url }}" style="height: 80px " class="img-circle" alt="">
                                     </div>

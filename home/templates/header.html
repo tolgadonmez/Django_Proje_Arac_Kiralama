@@ -6,17 +6,16 @@
         <div class="container">
             <div class="row">
                 <div class="span6">
-                    <p class="topcontact"><i class="icon-phone"></i> +62 088 999 123</p>
+                    <p class="topcontact"><i class="icon-phone"></i> +90 531 465 61 11</p>
                 </div>
+
                 <div class="span6">
 
                     <ul class="social-network">
-                        <li><a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-white"></i></a></li>
-                        <li><a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-white"></i></a></li>
-                        <li><a href="#" data-placement="bottom" title="Linkedin"><i class="icon-linkedin icon-white"></i></a></li>
-                        <li><a href="#" data-placement="bottom" title="Pinterest"><i class="icon-pinterest  icon-white"></i></a></li>
-                        <li><a href="#" data-placement="bottom" title="Google +"><i class="icon-google-plus icon-white"></i></a></li>
-                        <li><a href="#" data-placement="bottom" title="Dribbble"><i class="icon-dribbble icon-white"></i></a></li>
+                        <li><a href="{{ setting.facebook }}" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-white"></i></a></li>
+                        <li><a href="{{ setting.twitter }}" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-white"></i></a></li>
+                        <li><a href="{{ setting.instagram }}" data-placement="bottom" title="Instagram"><i class="icon-instagram icon-white"></i></a></li>
+
                     </ul>
 
                 </div>
@@ -52,6 +51,7 @@
                     <a href="/"><img src="{% static 'img/logo.png'%}" alt="" /></a>
                 </div>
             </div>
+
 
 
             <div class="span2">
@@ -113,6 +113,10 @@
                                 </li>
                                 <li>
                                     <a href="/iletisim">İletişim </a>
+
+                                </li>
+                                <li>
+                                    <a href="/sss">SSS </a>
 
                                 </li>
                                 {% if user.id is not None %}

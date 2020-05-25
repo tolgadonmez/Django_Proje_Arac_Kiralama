@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 
 # Create your views here.
-from car.models import Category, Comment, Reservation
+from car.models import Category, Comment, Reservation, Car
 from home.models import UserProfile
 from user.forms import UserUpdateForm, ProfileUpdateForm
 
@@ -28,7 +28,7 @@ def user_update(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, "Your account has been updated!")
+            messages.success(request, 'Hesabınız Başarıya Güncellendi!')
             return redirect('/user')
     else:
         category = Category.objects.all()
@@ -49,10 +49,10 @@ def change_password(request):
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)
-            messages.success(request, 'Your password was successfully updated!')
+            messages.success(request, 'Şifreniz Başarıyla Güncellendi !')
             return redirect('change_password')
         else:
-            messages.warning(request, 'Please correct the error below.<br>' + str(form.errors))
+            messages.warning(request, 'Lütfen Aşağıdaki Hatayı Düzeltin.<br>' + str(form.errors))
             return HttpResponseRedirect('/user/password')
     else:
         category = Category.objects.all()
@@ -67,19 +67,22 @@ def change_password(request):
 def comments(request):
     category = Category.objects.all()
     current_user = request.user
+    profile = UserProfile.objects.get(user_id=current_user.id)
     comments = Comment.objects.filter(user_id=current_user.id)
     context = {
         'category': category,
         'comments': comments,
+        'profile' : profile
     }
     return render(request, 'user_comments.html', context)
 
 
 @login_required(login_url='/login')
-def deletecomment(request, id):
+def deletecomment(request,id):
+    Car.objects.get(pk=id)
     current_user = request.user
     Comment.objects.filter(id=id, user_id=current_user.id).delete()
-    messages.success(request, 'Comment deleted.')
+    messages.success(request, 'Yorum Silindi.')
     return HttpResponseRedirect('/user/comments')
 
 
@@ -87,17 +90,39 @@ def deletecomment(request, id):
 def reservations(request):
     category = Category.objects.all()
     current_user = request.user
+    profile = UserProfile.objects.get(user_id=current_user.id)
     reservations = Reservation.objects.filter(user_id=current_user.id)
     context = {
         'category': category,
         'reservations': reservations,
+        'profile': profile,
+
     }
     return render(request, 'user_reservations.html', context)
 
 
 @login_required(login_url='/login')
-def deletereservation(request, id):
+def deletereservation(request,id):
+    Car.objects.get(pk=id)
     current_user = request.user
     Reservation.objects.filter(id=id, user_id=current_user.id).delete()
-    messages.success(request, 'Reservation deleted.')
+    messages.success(request, 'Rezervasyon Silindi.')
     return HttpResponseRedirect('/user/reservations')
+
+
+@login_required(login_url='/login')
+def newreservation(request, id):
+    car = Car.objects.get(pk=id)
+    current_user = request.user
+    profile = UserProfile.objects.get(user_id=current_user.id)
+    category = Category.objects.all()
+    reservation = Reservation.objects.filter(user_id=current_user.id)
+    context = {'category': category,
+               'reservation': reservation,
+               'profile': profile,
+               'car': car,
+               }
+    return render(request, 'newreservation.html', context)
+
+
+

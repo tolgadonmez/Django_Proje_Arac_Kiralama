@@ -1,7 +1,7 @@
 {% extends "homebase.html" %}
 
 {% block title %} {{ car.title }}  {% endblock %}
-{% block keyword %} {{ car.keyword }} {% endblock %}
+{% block keywords %} {{ car.keywords }} {% endblock %}
 {% block description %} {{ car.description }} {% endblock %}
 
 {% block head %}
@@ -105,13 +105,13 @@
                                             <th>Model</th>
                                             <td>{{ car.model }} </td>
                                         </tr>
+                                         <tr>
+                                            <th>Property</th>
+                                            <td>{{ category.title }} </td>
+                                        </tr>
                                         <tr>
                                             <th>Price</th>
                                             <td>{{ car.price }} </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Rezervasyon</th>
-                                            <td><a href="#">Rezerve etmek için tıklayınız</a></td>
                                         </tr>
 
                                         </tbody>
@@ -127,12 +127,19 @@
 
             <div class="tabs">
                 <ul class="nav nav-tabs">
-
+                    <li><a href="#one" data-toggle="tab">Reservation</a></li>
                     <li><a href="#two" data-toggle="tab">Detail</a></li>
                     <li><a href="#three" data-toggle="tab">Comments</a></li>
                 </ul>
                 <div class="tab-content">
 
+                 <div class="tab-pane" id="one">
+                        <p>
+
+                             <a href="/user/newreservation/{{ car.id }}" class="btn btn-primary ">Reserve Car</a>
+
+                        </p>
+                 </div>
 
                     <div class="tab-pane" id="two">
                         <p>
