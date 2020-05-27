@@ -32,18 +32,23 @@ def user_update(request):
             return redirect('/user')
     else:
         category = Category.objects.all()
+        current_user = request.user
+        profile = UserProfile.objects.get(user_id=current_user.id)
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.userprofile)
         context = {
             'category': category,
             'user_form': user_form,
-            'profile_form': profile_form
+            'profile_form': profile_form,
+            'profile': profile
         }
         return render(request, 'user_update.html', context)
 
 
 @login_required(login_url='/login')
 def change_password(request):
+    current_user = request.user
+    profile = UserProfile.objects.get(user_id=current_user.id)
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -59,7 +64,7 @@ def change_password(request):
         form = PasswordChangeForm(request.user)
 
         return render(request, 'change_password.html', {
-            'form': form, 'category': category
+            'form': form, 'category': category, 'profile': profile
         })
 
 

@@ -14,9 +14,9 @@ from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile, 
 
 def index(request):
     setting = Setting.objects.get(pk=1)
-    sliderdata = Car.objects.all()[:4]    #sliderda kaçtane araba gözükeceği
+    sliderdata = Car.objects.all()    #sliderda kaçtane araba gözükeceği
     category = Category.objects.all()
-    cars = Car.objects.all()[:6]          #contentte kaçtane araba gözükeceği
+    cars = Car.objects.all()       #contentte kaçtane araba gözükeceği
 
     if request.user.is_authenticated:
         current_user = request.user

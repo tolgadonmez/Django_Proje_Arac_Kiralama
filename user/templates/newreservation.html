@@ -19,7 +19,7 @@
                     <div class="inner-heading">
                         <ul class="breadcrumb">
                             <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
-                            <li><a href="#">Pages</a> <i class="icon-angle-right"></i></li>
+
                             <li class="active">User Profile</li>
                         </ul>
 
@@ -43,7 +43,8 @@
                             <div class="span8">
                                 <div class="post-image">
                                     <div class="post-heading">
-                                        <h3><a href="#">Reservation Information for {{ car.title }}</a></h3>
+                                        <h3>Reservation Information for {{ car.title }} <img src="{{car.image.url}}" style="height:100px; width:150px" class="img-circle" alt="" /></h3>
+
                                     </div>
                                     <form name="reservation" action="/car/addreservation/{{ car.id }}" method="post" role="form" class="contactForm">
                                         {% csrf_token %}
@@ -60,7 +61,7 @@
                                         <div class="validation"></div>
                                         <input type="text" id="id_price" name="price" value="{{ car.price }}" placeholder="Price" />
                                         <div class="validation"></div>
-                                        Checkin:<input type="date" id="id_checkin" name="checkin" placeholder="Checkin" />
+                                        Checkin:<input type="date" id="id_checkin" name="checkin" placeholder="Checkin" /> <br>
                                         <div class="validation"></div>
                                         Checkout:<input type="date" id="id_checkout" name="checkout" placeholder="Checkout" />
                                         <div class="validation"></div> <br>

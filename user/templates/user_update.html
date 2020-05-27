@@ -19,7 +19,7 @@
                     <div class="inner-heading">
                         <ul class="breadcrumb">
                             <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
-                            <li><a href="#">Pages</a> <i class="icon-angle-right"></i></li>
+
                             <li class="active">User Update</li>
                         </ul>
 
@@ -51,7 +51,7 @@
 
 
                                     <div>
-                                        <img src="{{ user.userprofile.image.url }}" style="height: 80px " class="img-circle" alt="">
+                                        <img src="{{ user.userprofile.image.url }}" style="height: 100px " class="img-circle" alt="">
                                     </div>
                                     <form method="POST" enctype="multipart/form-data">
                                         {% csrf_token %}

@@ -41,7 +41,7 @@
                         <div>
                             <h2>{{ car.title }}</h2>
                         </div>
-                        <img src="{{car.image.url }}" style="height:300px; width:450px " />
+                        <img src="{{car.image.url }}" style="height:400px; width:550px "  alt=""/>
                         <article >
                             <a class="icon-zoom-in" data-pretty="prettyPhoto" href="{{car.image.url}}">
                             </a>
@@ -87,15 +87,7 @@
                                     <table class="table">
                                         <tbody>
 
-                                        <tr>
-                                            <th>Description</th>
-                                            <td>{{ car.description }}</td>
-                                        </tr>
 
-                                        <tr>
-                                            <th>Keywords</th>
-                                            <td>{{ car.keywords }} </td>
-                                        </tr>
 
                                         <tr>
                                             <th>Marka</th>
@@ -104,10 +96,6 @@
                                         <tr>
                                             <th>Model</th>
                                             <td>{{ car.model }} </td>
-                                        </tr>
-                                         <tr>
-                                            <th>Property</th>
-                                            <td>{{ category.title }} </td>
                                         </tr>
                                         <tr>
                                             <th>Price</th>
@@ -133,13 +121,13 @@
                 </ul>
                 <div class="tab-content">
 
-                 <div class="tab-pane" id="one">
+                    <div class="tab-pane" id="one">
                         <p>
 
-                             <a href="/user/newreservation/{{ car.id }}" class="btn btn-primary ">Reserve Car</a>
+                            <a href="/user/newreservation/{{ car.id }}" class="btn btn-primary ">Reserve Car</a>
 
                         </p>
-                 </div>
+                    </div>
 
                     <div class="tab-pane" id="two">
                         <p>
@@ -156,7 +144,7 @@
 
                             <h6>{{ rs.subject }}  [Rate : {{ rs.rate }}]</h6>
                             <p>
-                                <h6>Comment :  {{ rs.comment }}</h6>
+                            <h6>Comment :  {{ rs.comment }}</h6>
                             </p>
                             <div class="solidline"></div>
 
