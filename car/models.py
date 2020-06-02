@@ -1,6 +1,10 @@
+from calendar import calendar
+from datetime import datetime
+
 from django.contrib.auth.models import User
 from django.db import models
-
+from datetime import datetime
+from datetime import timedelta
 # Create your models here.
 from django.forms import ModelForm
 from django.urls import reverse
@@ -164,4 +168,4 @@ class Reservation(models.Model):
 class ReservationForm(ModelForm):
     class Meta:
         model = Reservation
-        fields = ['name', 'email', 'phone', 'address', 'location', 'checkin', 'checkout', 'days']
+        fields = ['name', 'email', 'phone', 'address', 'location', 'days', 'checkin', 'checkout']

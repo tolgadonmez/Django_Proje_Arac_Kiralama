@@ -134,7 +134,7 @@ def car_detail(request, id, slug):
     car = Car.objects.get(pk=id)
     images = Images.objects.filter(car_id=id)
     comments = Comment.objects.filter(car_id=id, status='True')
-    reservations = Reservation.objects.filter(car_id=id, status='True')
+    reservations = Reservation.objects.filter(car_id=id)
     if request.user.is_authenticated:
         current_user = request.user
         profile = UserProfile.objects.get(user_id=current_user.id)

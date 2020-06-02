@@ -3,13 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="50364f8e-bc8d-4bb4-9572-46836977a811" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/car_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/car_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/cars.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/cars.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/cars_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/cars_search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/hakkimizda.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/hakkimizda.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/homebase.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/homebase.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/iletisim.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/iletisim.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/referanslarimiz.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/referanslarimiz.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/templates/change_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/change_password.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/templates/newreservation.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/newreservation.html" afterDir="false" />
@@ -17,7 +23,6 @@
       <change beforePath="$PROJECT_DIR$/user/templates/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/templates/user_reservations.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_reservations.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/templates/user_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +40,12 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
@@ -63,6 +73,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -141,7 +152,11 @@
       <workItem from="1590260593315" duration="24517000" />
       <workItem from="1590315655618" duration="38501000" />
       <workItem from="1590447815063" duration="2199000" />
-      <workItem from="1590608442171" duration="7834000" />
+      <workItem from="1590608442171" duration="7912000" />
+      <workItem from="1590648338040" duration="2176000" />
+      <workItem from="1590785929442" duration="2722000" />
+      <workItem from="1590862814362" duration="3393000" />
+      <workItem from="1591008396815" duration="29003000" />
     </task>
     <task id="LOCAL-00001" summary="6.video son hali">
       <created>1589412321161</created>
@@ -213,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590369776714</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="28/05/2020">
+      <created>1590622551152</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1590622551152</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,9 +262,14 @@
     <MESSAGE value="20.05.2020" />
     <MESSAGE value="23/05/2020" />
     <MESSAGE value="25/05/2020" />
-    <option name="LAST_COMMIT_MESSAGE" value="25/05/2020" />
+    <MESSAGE value="28/05/2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="28/05/2020" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591099190547">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1591099190547" />
     <state x="421" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589562118030">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -251,14 +278,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1590329184249" />
-    <state x="381" y="0" key="CommitChangelistDialog2" timestamp="1590369775527">
+    <state x="381" y="0" key="CommitChangelistDialog2" timestamp="1590622549561">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="381" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590369775527" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1589412681124">
+    <state x="381" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590622549561" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1591099175574">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589412681124" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591099175574" />
     <state width="1323" height="107" key="GridCell.Tab.0.bottom" timestamp="1590369878474">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -291,21 +318,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="107" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1590369878474" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1590369785925">
+    <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1591099199734">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1590369785925" />
-    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590622519873">
+    <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1366.728@0.0.1366.728" timestamp="1591099199734" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1590622556651">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1590622519873" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1590622556651" />
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591128762653">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1591128762653" />
     <state x="484" y="155" key="git4idea.merge.GitMergeDialog" timestamp="1589594511247">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="484" y="155" key="git4idea.merge.GitMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1589594511247" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590272013175">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1591012647276">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590272013175" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1591012647276" />
   </component>
 </project>

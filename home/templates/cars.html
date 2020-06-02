@@ -1,7 +1,7 @@
 {% extends "homebase.html" %}
 
 {% block title %} {{ categorydata.title }}  {% endblock %}
-{% block keywords %} {{ categorydata.keyword }} {% endblock %}
+{% block keywords %} {{ categorydata.keywords }} {% endblock %}
 {% block description %} {{ categorydata.description  }} {% endblock %}
 
 {% block head %}
@@ -19,9 +19,9 @@
             <div class="inner-heading">
               <ul class="breadcrumb">
                 <li><a href="index.html">Anasayfa</a> <i class="icon-angle-right"></i></li>
-
+                <li class="active">{{ categorydata.title }}</li>
               </ul>
-              <h2>{{ categorydata.title }}</h2>
+
             </div>
           </div>
         </div>

@@ -1,34 +1,12 @@
 {% load static %}
-<section id="featured">
 
-    <!-- slideshow start here -->
-
-    <div class="camera_wrap" id="camera-slide">
-        {% for rs in sliderdata  %}
-            <!-- slide 1 here -->
-            <div data-src="{{rs.image.url}} ">
-                <div class="camera_caption fadeFromLeft">
-                    <div class="container">
-                        <div class="row">
-                            <div class="span12">
-                                <h1 style="color: #fd0000"><strong>{{ rs.title }}</strong></h1>
-                                <h3 style="color: #fd5559">{{ rs.description }}</h3>
-                                <a style="color: #fd5559" href="/car/{{ rs.id }}/{{ rs.slug }}" class="btn-primary">Kirala</a>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-        {% endfor %}
-
-    </div>
-
-    <!-- slideshow end here -->
-
-</section>
+<div class="fotorama"
+     data-autoplay="3000"
+     data-loop="true"
+     data-transition="crossfade"
+     data-width="100%"
+     data-ratio="1800/600" >
+    {% for rs in sliderdata %}
+        <div  data-img="{{rs.image.url}}"><a href="/car/{{ rs.id }}/{{ rs.slug }}"><h2><strong>{{ rs.title }}</strong></h2></a></div>
+    {% endfor %}
+</div>

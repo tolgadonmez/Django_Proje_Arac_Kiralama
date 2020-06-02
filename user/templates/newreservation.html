@@ -1,7 +1,7 @@
 {% extends "homebase.html" %}
 
 {% block title %} Reservation Information {% endblock %}
-{% block keyword %} {{ setting.keywords }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 
 {% block head %}
@@ -49,13 +49,13 @@
                                     <form name="reservation" action="/car/addreservation/{{ car.id }}" method="post" role="form" class="contactForm">
                                         {% csrf_token %}
 
-                                        <input type="text" id="id_name" name="name" value="" placeholder="Name" />
+                                        <input type="text" id="id_name" name="name" value="{{profile.user.first_name }} {{ profile.user.last_name }}" placeholder="Name" />
                                         <div class="validation"></div>
-                                        <input type="text" id="id_email" name="email" placeholder="Email"/>
+                                        <input type="text" id="id_email" name="email" value="{{profile.user.email }}" placeholder="Email"/>
                                         <div class="validation"></div>
-                                        <input type="text" id="id_phone" name="phone" placeholder="Phone"  />
+                                        <input type="text" id="id_phone" name="phone" value="{{profile.phone }}" placeholder="Phone"  />
                                         <div class="validation"></div>
-                                        <input type="text" id="id_address" name="address" placeholder="Address"  />
+                                        <input type="text" id="id_address" name="address" value="{{profile.address }}" placeholder="Address"  />
                                         <div class="validation"></div>
                                         <input type="text" id="id_location" name="location"  placeholder="Location" />
                                         <div class="validation"></div>
